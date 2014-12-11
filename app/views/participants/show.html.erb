@@ -1,0 +1,15 @@
+<h1>Invite your friends!!</h1>
+
+<%= form_for([@participant, @participant.friends.build]) do |f| %>
+  <p>
+    <%= f.label :friend_name %><br>
+    <%= f.text_field :friend_name %>
+  </p>
+  <p>
+    <%= f.label :friend_email %><br>
+    <%= f.text_field :friend_email %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

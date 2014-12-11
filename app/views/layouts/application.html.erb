@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Womanwhocode</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
+  <%= javascript_include_tag 'application', :defer => "defer" %>
+  <%= csrf_meta_tags %>
+</head>
+<body onload="initialize()">
+
+<%= yield %>
+
+</body>
+</html>
