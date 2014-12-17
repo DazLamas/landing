@@ -25,15 +25,17 @@ function hideParticipant() {
         var formContainer = document.getElementById('formContainer')
         var p             = document.createElement('p');
         attribute         = document.createAttribute("data-participant-id");
-        attribute.value    = data;
+        attribute.value   = data;
+        id                = document.createAttribute("id");
+        id.value          = "attributeContainer";
+
 
         p.setAttributeNode(attribute);
-        formContainer.appendChild(p);
-        alert('HE LLEGADO')
+        p.setAttributeNode(id);
+        formContainer.insertBefore(p, formContainer.firstChild);
       }
     )
 };
-
 
 
 // SENDING FRIEND DATA -----------------------------------------------
@@ -47,6 +49,7 @@ document.getElementById('friendButton').onclick = function (){
     "friend_name"     : document.getElementById('friend_name').value,
     "friend_email"    : document.getElementById('friend_email').value
   }
+alert('friendbutton')
 
   $.ajax({
      type       : "POST",
@@ -59,5 +62,5 @@ document.getElementById('friendButton').onclick = function (){
 
 function alerta() {
     // document.getElementById("participantInvitation").style.display = 'none';
-    alert('done friend')
+    alert('success')
 };
