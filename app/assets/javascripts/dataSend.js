@@ -1,3 +1,5 @@
+// SENDING PARTICIPANT DATA -----------------------------------------------
+
 document.getElementById('button').onclick = function (){
 
   var jsonParticipantInfo = {
@@ -15,11 +17,26 @@ document.getElementById('button').onclick = function (){
 }
 
 function hideParticipant() {
-    // document.getElementById("participantInvitation").style.display = 'none';
-    alert('done')
+
+    $.getJSON(
+      '/participants',
+      function(data) {
+        alert(data)
+        var formContainer = document.getElementById('formContainer')
+        var p             = document.createElement('p');
+        attribute         = document.createAttribute("data-participant-id");
+        attribute.value    = data;
+
+        p.setAttributeNode(attribute);
+        formContainer.appendChild(p);
+        alert('HE LLEGADO')
+      }
+    )
 };
 
-// FRIEND DATA -----------------------------------------------
+
+
+// SENDING FRIEND DATA -----------------------------------------------
 
 document.getElementById('friendButton').onclick = function (){
 

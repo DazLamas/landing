@@ -12,7 +12,7 @@
 <section class="invitation" id="participantInvitation">
   <h3>Saturday, December 13th 5:00pm at MOB</h1>
 <div>
-  <div style="display:block">
+  <div style="display:none">
     <input name="utf8" type="hidden" value="&#x2713;" />
     <input name="authenticity_token" type="hidden" value="NPpQuhb8JU5JD06x2pzthy7tmZSBNCKNKTlToDJzvaw=" />
   </div>
@@ -26,12 +26,11 @@
     <button id="button">Send</button>
   </p>
 </div>
-<% @this_participant = Participant.last %>
 
-<p>Hi <%= @this_participant.name %></p>
-<p id="attributeContainer" data-participant-id="<%= @this_participant.id %>">Hi <%= @this_participant.id %></p>
-<p>Invite your friends:</p>
-<div>
+<!-- AQUI -->
+<div id="formContainer">
+<!--   <p id="attributeContainer" data-participant-id="<%= @this_participant.id %>"></p> -->
+  <p>Invite your friends:</p>
   <div style="display:none">
     <input name="utf8" type="hidden" value="&#x2713;" />
     <input name="authenticity_token" type="hidden" value="egL+MIchvAxVRxbi9FkgDy7lp/nong2LNVd0NYyNxms=" />

@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @participant = Participant.all
+    @this_participant = Participant.last
   end
 
 end

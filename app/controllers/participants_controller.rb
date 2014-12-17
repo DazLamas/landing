@@ -1,4 +1,9 @@
 class ParticipantsController < ApplicationController
+ def index
+    @last_participant = Participant.last
+    render json: @last_participant.id
+ end
+
   def new
 
   end
@@ -10,7 +15,9 @@ class ParticipantsController < ApplicationController
       )
 
     if  @participant.save
-      # redirect_to action: 'index', controller: 'users'
+      this_participant = Participant.last
+      render json: this_participant.id
+
     else
       flash.now[:error] = "Fatal Error. Vuelve a introducir los datos"
     end
