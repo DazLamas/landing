@@ -9,9 +9,15 @@ document.getElementById('button').onclick = function (){
      type     : "POST",
      url      : "/participants",
      beforeSend : function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-     data     : jsonParticipantInfo
-   })
+     data     : jsonParticipantInfo,
+     success: alerta()
+  })
 }
+
+function alerta() {
+         alert('good');
+         alert('he entrado')
+};
 
 // sendButton.onclick = function() {
 
