@@ -1,11 +1,20 @@
-var sendButton = document.getElementById("button");
+document.getElementById('button').onclick = function (){
 
-sendButton.onclick = function() {
-  alert("moot!");
-  remove(input);
-};
+  var jsonParticipantInfo ={
+    "name" : document.getElementById('participant_name').value,
+    "email" : document.getElementById('participant_email').value
+  }
 
-function remove(id)
-{
-    return (elem=document.getElementById(id)).parentNode.removeChild(elem);
+  $.ajax({
+     type     : "POST",
+     url      : "/participants",
+     beforeSend : function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+     data     : jsonParticipantInfo
+   })
 }
+
+// sendButton.onclick = function() {
+
+//   document.getElementById("participantInvitation").style.display = 'none';
+
+// };

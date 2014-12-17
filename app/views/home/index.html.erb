@@ -9,25 +9,23 @@
   </div>
 </header>
 
-<section class="invitation">
+<section class="invitation" id="participantInvitation">
   <h3>Saturday, December 13th 5:00pm at MOB</h1>
-  <form accept-charset="UTF-8" action="/participants" method="post">
-  <div style="display:none">
+  <div style="display:block">
     <input name="utf8" type="hidden" value="&#x2713;" />
     <input name="authenticity_token" type="hidden" value="NPpQuhb8JU5JD06x2pzthy7tmZSBNCKNKTlToDJzvaw=" />
   </div>
   <div>
-    <input placeholder="Enter your name" id="participant_name" name="participant[name]" type="text" />
+    <input placeholder="Enter your name" id="participant_name" type="text" />
   </div>
 
   <div>
-    <input placeholder="Enter your e-mail" id="participant_email" name="participant[email]" type="text" />
+    <input placeholder="Enter your e-mail" id="participant_email" type="text" />
   </div>
 
   <p>
     <button id="button">Send</button>
   </p>
-</form>
 
 <% @this_participant = Participant.last %>
 
