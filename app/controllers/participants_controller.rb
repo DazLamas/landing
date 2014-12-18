@@ -17,7 +17,9 @@ class ParticipantsController < ApplicationController
     if  @participant.save
       this_participant = Participant.last
       render json: this_participant.id
+      # Deliver the signup email
       ParticipantNotifier.send_signup_email(@participant).deliver
+      # redirect_to(@participant, :notice => 'participant created')
 
     else
       flash.now[:error] = "Fatal Error. Vuelve a introducir los datos"
