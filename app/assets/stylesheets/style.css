@@ -42,6 +42,16 @@ hr {
 }
 
 /* ------------------- INVITATIONS*/
+.invitation {
+  padding: 30px;
+  width: 100%;
+  background-color: #2c3e50;
+  text-align: center;
+  color: white;
+}
+.invitation p{
+ display: inline-block;
+}
 .invitation h3{
   font-weight: lighter;
   font-size: 25px;
@@ -49,17 +59,6 @@ hr {
   color: white;
 }
 
-.invitation {
-  padding: 30px;
-  height: 400px;
-  width: 100%;
-  background-color: #2c3e50;
-  text-align: center;
-  color: white;
-}
-form {
-  display: inline-block;
-}
 input {
   margin: 10px;
   border-radius: 3px;

@@ -17,6 +17,7 @@ class ParticipantsController < ApplicationController
     if  @participant.save
       this_participant = Participant.last
       render json: this_participant.id
+      ParticipantNotifier.send_signup_email(@participant).deliver
 
     else
       flash.now[:error] = "Fatal Error. Vuelve a introducir los datos"

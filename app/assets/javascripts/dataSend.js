@@ -12,17 +12,16 @@ document.getElementById('button').onclick = function (){
      url        : "/participants",
      beforeSend : function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
      data       : jsonParticipantInfo,
-     success: hideParticipant()
+     success: getParticipantID()
   })
 }
 
-function hideParticipant() {
+function getParticipantID() {
 
     $.getJSON(
       '/participants',
       function(data) {
-        alert(data)
-        var formContainer = document.getElementById('formContainer')
+        var formContainer = document.getElementById('formContainer');
         var p             = document.createElement('p');
         attribute         = document.createAttribute("data-participant-id");
         attribute.value   = data;
@@ -35,8 +34,16 @@ function hideParticipant() {
         formContainer.insertBefore(p, formContainer.firstChild);
       }
     )
+
+    toggleInvitations();
 };
 
+function toggleInvitations(){
+
+  document.getElementById('participantInvitation').style.display      = 'none';
+  document.getElementById('formContainer').style.display              = 'block';
+
+};
 
 // SENDING FRIEND DATA -----------------------------------------------
 
@@ -49,18 +56,18 @@ document.getElementById('friendButton').onclick = function (){
     "friend_name"     : document.getElementById('friend_name').value,
     "friend_email"    : document.getElementById('friend_email').value
   }
-alert('friendbutton')
 
   $.ajax({
      type       : "POST",
      url        : "/participants/" + route_number +"/friends",
      beforeSend : function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
      data       : jsonFriendInfo,
-     success: alerta()
+     success: thanksMessage()
   })
 }
 
-function alerta() {
-    // document.getElementById("participantInvitation").style.display = 'none';
-    alert('success')
+function thanksMessage() {
+    document.getElementById("formContainer").style.display = 'none';
+    document.getElementById("thanks").style.display = 'block';
+    document.getElementById('invitation_section').style.backgroundColor = '#32CD32';
 };
